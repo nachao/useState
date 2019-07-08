@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      body {
+        padding: 50px;
+      }
+      * {
+        font-family: 微软雅黑;
+        font-weight: 100;
+        font-size: 20px;
+        color: #000;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-top: 100px;
+      }
+      pre {
+        background: #eee;
+        padding: 20px;
+        border-radius: 3px;
+        border-left: 3px solid black;
+        position: relative;
+        line-height: 1.6rem;
+      }
+      p {
+        background: #eee;
+        padding: 20px;
+        margin: 0;
+        border-radius: 3px;
+        font-size: 1rem;
+        border-left: 3px solid green;
+        position: relative;
+        font-weight: 400;
+      }
+      pre::after,
+      p::after {
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        font-size: 12px;
+        color: #666;
+      }
+      pre::after {
+        content: "input";
+      }
+      p::after {
+        content: "output";
+      }
+    </style>
+  </head>
+  <body>
+    <h1>react的class数据观察者 / vue2.x的data</h1>
+    <pre>
+&lt;p>{{ data.view.title }}&lt;/p>
+
+const data = defineProperty({ data: { view: { title: '' } } });
+data.view.title = 'hello work';	// set
+</pre
+    >
+    <p>{{ data.view.title }}</p>
+
+    <h1>useState 方式</h1>
+    <pre>
+&lt;p>{{ count }}&lt;/p>
+
+const [count, setCount] = useState(0);
+setCount(1);	// set
+</pre
+    >
+    <p>{{ count }}</p>
+
+    <script src="./DomInnerText.js"></script>
+    <script>
+      // 整个data全局数据绑定
+      var data = defineProperty({ view: { title: "" } });
+      data.view.title = "hello work";
+
+      // 使用 useState
+      var [count, setCount] = useState(0);
+      setCount(1);
+
+      // -
+    </script>
+  </body>
+</html>
